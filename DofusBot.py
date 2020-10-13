@@ -42,31 +42,19 @@ def ChangeZone(direction):
         FI.ClickXY(x,y,0.1)
 
 def DetectZoneLoading():
-    zoneLoading = True
+    zoneLoading = False
     screenSize = FI.GetScreenSize()
     screenCenter = [screenSize[0]//2,screenSize[1]//2]
-    radiusToCheck = 10
     screenPixels = FI.GetScreenPixels()
-    startingX = screenCenter[0]-radiusToCheck
-    startingY = screenCenter[1]-radiusToCheck
-    for Area in range(2*radiusToCheck):
-        if screenPixels[startingX+Area,startingY+Area] != [0,0,0]:
-            zoneLoading = False
-            break
+    if screenPixels[screenCenter[0],screenCenter[1]] == [0,0,0]:
+        zoneLoading = True
     return zoneLoading
 
-
-    
 def DetectZoneLoaded():
-    zoneLoaded = True
+    zoneLoaded = False
     screenSize = FI.GetScreenSize()
     screenCenter = [screenSize[0]//2,screenSize[1]//2]
-    radiusToCheck = 50
     screenPixels = FI.GetScreenPixels()
-    startingX = screenCenter[0]-radiusToCheck
-    startingY = screenCenter[1]-radiusToCheck
-    for Area in range(2*radiusToCheck):
-        if screenPixels[startingX+Area,startingY+Area] != [0,0,0]:
-            zoneLoaded = False
-            break
+    if screenPixels[screenCenter[0],screenCenter[1]] != [0,0,0]:
+        zoneLoaded = True
     return zoneLoaded

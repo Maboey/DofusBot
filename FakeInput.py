@@ -6,6 +6,10 @@ import keyboard
 import mouse
 from PIL import ImageGrab
 import os
+from PIL import Image
+import pytesseract
+
+pytesseract.pytesseract.tesseract_cmd = os.getcwd() + "/Tesseract/tesseract.exe"
 
 """
 GetcreenSize()
@@ -36,5 +40,12 @@ retourne un tableau 2d de pixel [RGB]
 """
 def GetScreenPixels(): 
     image = ImageGrab.grab()
-    screenView = image
-    return screenView.load()
+    return image.load()
+
+"""
+=== ReadTextOnScreen() ===
+retourne le texte à l'écran sous forme de string
+"""
+def ReadTextOnScreen():
+    image = ImageGrab.grab()
+    return pytesseract.image_to_string(image)

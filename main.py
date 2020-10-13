@@ -18,7 +18,6 @@ print("Bot Ready")
 while run :
     #if bot is not paused
     if play:
-
         if botTraveling:
             if readyToChangeZone :
                 db.ChangeZone(random.choice(["up","down","left","right"]))
@@ -27,12 +26,12 @@ while run :
             else :
                 if db.DetectZoneLoading:
                     zoneLoading = True
-                if time.time() >= (timeStampTriedChangingZone + waitZoneChange) or (zoneLoading and db.DetectZoneLoaded()):
+                else:
+                    zoneLoading = False
+                if (time.time() >= (timeStampTriedChangingZone + waitZoneChange)) or (zoneLoading and db.DetectZoneLoaded()):
                     zoneLoading = False
                     readyToChangeZone = True
-        
 
-    
     #pause or stop bot detection
     if db.PausePlay():
         play = not play
