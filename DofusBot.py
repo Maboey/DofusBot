@@ -63,7 +63,7 @@ def IsSpecificEnemyHere(name):
     keyboard.press('z')
     stringText = FI.ReadTextOnScreen()
     keyboard.release('z')
-    if (stringText.find(name)>0):
+    if (stringText.find(name)>=0):
         print("OUIOUIOUI")
         return True
     else:
