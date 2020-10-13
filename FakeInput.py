@@ -38,10 +38,8 @@ def KeyboardInput(k_input):
 === GetScreenPixels() ===
 retourne un tableau 2d de pixel [RGB]
 """
-def GetScreenPixels(): 
-    keyboard.press('z')
+def GetScreenPixels():
     image = ImageGrab.grab()
-    keyboard.release('z')
     return image.load()
 
 """
