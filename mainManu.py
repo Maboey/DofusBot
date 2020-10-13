@@ -18,6 +18,7 @@ print("Bot Ready")
 while run :
     #if bot is not paused
     if play:
+        
         if botTraveling:
             if readyToChangeZone :
                 db.ChangeZone(random.choice(["up","down","left","right"]))
