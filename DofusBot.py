@@ -58,3 +58,10 @@ def DetectZoneLoaded():
     if screenPixels[screenCenter[0],screenCenter[1]] != [0,0,0]:
         zoneLoaded = True
     return zoneLoaded
+
+def IsSpecificEnemyHere(name):
+    stringText = FI.ReadTextOnScreen()
+    if (stringText.find(name)>0):
+        return True
+    else:
+        return False
