@@ -39,7 +39,9 @@ def KeyboardInput(k_input):
 retourne un tableau 2d de pixel [RGB]
 """
 def GetScreenPixels(): 
+    keyboard.press('z')
     image = ImageGrab.grab()
+    keyboard.release('z')
     return image.load()
 
 """
@@ -47,5 +49,6 @@ def GetScreenPixels():
 retourne le texte à l'écran sous forme de string
 """
 def ReadTextOnScreen():
+
     image = ImageGrab.grab()
     return pytesseract.image_to_string(image)
