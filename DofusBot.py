@@ -62,6 +62,8 @@ def DetectZoneLoaded():
 def IsSpecificEnemyHere(name):
     stringText = FI.ReadTextOnScreen()
     if (stringText.find(name)>0):
+        print("OUIOUIOUI")
         return True
     else:
+        print("NONONONON")
         return False
